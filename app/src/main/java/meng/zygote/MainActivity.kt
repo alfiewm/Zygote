@@ -2,6 +2,7 @@ package meng.zygote
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.pawegio.kandroid.toast
 import meng.zygote.api.RestAPI
 
 class MainActivity : AppCompatActivity() {
@@ -11,5 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val restApi = RestAPI()
         restApi.getDemoResponse("endpoint", "50")
+        toast("hola from kandroid")
     }
 }
