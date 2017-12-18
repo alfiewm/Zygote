@@ -5,10 +5,18 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <meng.zygote.widget.ClickableImageView
-        android:id="@+id/clickableIV"
+    <meng.zygote.widget.PressableImageView
+        android:id="@+id/pressableIV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_name" />
+
+    <meng.zygote.widget.PressableTextView
+        android:id="@+id/pressableTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rect_grey"
+        android:padding="10dp"
+        android:text="参差不齐" />
 
 </LinearLayout>

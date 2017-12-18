@@ -13,8 +13,11 @@ class WidgetShowcaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_widget_showcase)
-        clickableIV.setOnClickListener {
+        pressableIV.setOnClickListener {
             toast("I can still be clicked!")
+        }
+        pressableTV.setOnClickListener {
+            toast("I, the tv, is clicked!")
         }
     }
 }
