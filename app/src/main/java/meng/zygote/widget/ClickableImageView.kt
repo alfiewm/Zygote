@@ -13,17 +13,15 @@ class ClickableImageView @JvmOverloads constructor(
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0) : ImageView(context, attrs, defStyleAttr) {
 
-    init {
-        setOnTouchListener { _, event ->
-            when {
-                event.action == MotionEvent.ACTION_DOWN -> {
-                    alpha = 0.5f
-                }
-                event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL -> {
-                    alpha = 1f
-                }
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        when {
+            event?.action == MotionEvent.ACTION_DOWN -> {
+                alpha = 0.5f
             }
-            true
+            event?.action == MotionEvent.ACTION_UP || event?.action == MotionEvent.ACTION_CANCEL -> {
+                alpha = 1f
+            }
         }
+        return super.onTouchEvent(event)
     }
 }
