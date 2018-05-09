@@ -1,17 +1,14 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         applicationId "meng.zygote"
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,18 +21,15 @@ android {
     }
 }
 
-ext {
-    supportLibVersion = "26.0.2"
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation project(':yfd-android-jira-issue-report')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${project.kotlin_version}"
+    implementation "com.android.support:appcompat-v7:${project.supportLibVersion}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.1.0'
-    implementation 'com.github.bumptech.glide:glide:4.1.1'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
     implementation 'com.pawegio.kandroid:kandroid:0.8.5@aar'
     kapt 'com.github.bumptech.glide:compiler:4.1.1'
     testImplementation 'junit:junit:4.12'

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutProject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueProject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Project" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Type" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutPriority"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Priority">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issuePriority"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/editTextBackground"
+                    android:textSize="17sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutLabels"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueLabels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Labels" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutEnvironment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueEnvironment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Environment" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutFixVersion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueFixVersion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fix Version" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/notifyReporterCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutReporter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Reporter">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueReporter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/editTextBackground"
+                    android:textSize="17sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/notifyAssigneeCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutAssignee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Assignee">
+
+                <com.yuanfudao.android.jira.widget.ChoicesEditText
+                    android:id="@+id/issueAssignee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/editTextBackground"
+                    android:textSize="17sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yuanfudao.android.jira.widget.ChoicesEditText
+                android:id="@+id/issueSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Summary" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yuanfudao.android.jira.widget.ChoicesEditText
+                android:id="@+id/issueDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/createBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create" />
+
+        <TextView
+            android:id="@+id/logView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</ScrollView>
