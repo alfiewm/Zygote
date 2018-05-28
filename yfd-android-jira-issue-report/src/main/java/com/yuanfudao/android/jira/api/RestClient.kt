@@ -10,10 +10,10 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object RestClient {
 
-    private const val jiraBaseUrl = "xxxx"
-    private const val wechatWorkBaseUrl = "xxxxx"
-    private const val robotName = "xxxxx"
-    private const val robotPwd = "xxxxx"
+    private const val jiraBaseUrl = "https://jira.zhenguanyu.com"
+    private const val wechatWorkBaseUrl = "https://oa.zhenguanyu.com"
+    private const val robotName = "*****"
+    private const val robotPwd = "*******"
 
     private val authString: String by lazy {
         Base64.encodeToString("$robotName:$robotPwd".toByteArray(), Base64.NO_WRAP)
@@ -23,7 +23,7 @@ object RestClient {
         OkHttpClient.Builder().addInterceptor { chain ->
             val request = chain.request()
             val builder = request.newBuilder()
-            if (request.url().toString().contains("xxxxxx")) {
+            if (request.url().toString().contains("jira.zhenguanyu.com")) {
                 builder.addHeader("Authorization", "Basic $authString")
             }
             if (request.url().toString().contains("attachments")) {

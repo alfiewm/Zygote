@@ -10,14 +10,18 @@
         android:required="true" />
 
     <application>
+
         <activity
             android:name=".ui.JIRAEntryActivity"
             android:theme="@style/jira_EntryTheme" />
+
         <activity
             android:name=".ui.JIRACreateIssueActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+
         <activity
-            android:name=".ui.ScreenshotEditActivity"
+            android:name=".ui.JIRAEditScreenshotActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
 
         <service

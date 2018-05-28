@@ -5,7 +5,7 @@ package com.yuanfudao.android.jira
  */
 interface JIRAInfoProvider {
 
-    val projectKey: String
+    val projectKeys: List<String>
     val appVersion: String
     val reporters: List<String>
     val assignees: List<String>

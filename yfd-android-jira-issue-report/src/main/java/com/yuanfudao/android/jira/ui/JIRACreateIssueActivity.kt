@@ -29,8 +29,10 @@ class JIRACreateIssueActivity : AppCompatActivity() {
     companion object {
 
         const val ARG_SCREENSHOT_FILE_PATH = "SCREENSHOT_FILE_PATH"
+        private const val PREF_KEY_ISSUE_PROJECT = "PREF_KEY_ISSUE_PROJECT"
         private const val PREF_KEY_ISSUE_REPORTER = "PREF_KEY_ISSUE_REPORTER"
         private const val PREF_KEY_ISSUE_ASSIGNEE = "PREF_KEY_ISSUE_ASSIGNEE"
+        private const val PREF_KEY_ISSUE_FIX_VERSION = "PREF_KEY_ISSUE_FIX_VERSION"
     }
 
     private var progressDialog: ProgressDialog? = null
@@ -56,7 +58,10 @@ class JIRACreateIssueActivity : AppCompatActivity() {
     private fun initViews() {
         val config = JIRAIssueReport.config
 
-        issueProject.setText(config?.projectKey)
+        val defaultProject = sharedPreferences.getString(PREF_KEY_ISSUE_PROJECT, config?.projectKeys?.get(0))
+        issueProject.setText(defaultProject)
+        issueProject.choices = config?.projectKeys ?: listOf()
+
         issueType.setText("Bug")
         issueType.choices = listOf("Bug", "Task", "Story")
 
@@ -64,8 +69,10 @@ class JIRACreateIssueActivity : AppCompatActivity() {
         issuePriority.choices = listOf("Highest", "High", "Medium", "Low", "Lowest")
 
         issueLabels.setText("Android")
-        issueEnvironment.setText("${Build.MANUFACTURER}/${Build.VERSION.SDK_INT}")
-        issueFixVersion.setText("V${config?.appVersion}")
+        issueEnvironment.setText("${Build.MANUFACTURER}/${Build.MODEL}/${Build.VERSION.SDK_INT}")
+        val defaultFixVersion = sharedPreferences.getString(
+                PREF_KEY_ISSUE_FIX_VERSION, "V${config?.appVersion}")
+        issueFixVersion.setText(defaultFixVersion)
 
         if (config != null) {
             val defaultReporter = sharedPreferences.getString(PREF_KEY_ISSUE_REPORTER, config.defaultReporter())
@@ -194,8 +201,10 @@ class JIRACreateIssueActivity : AppCompatActivity() {
 
     private fun updateSP() {
         sharedPreferences.edit {
+            putString(PREF_KEY_ISSUE_PROJECT, issueProject.text.toString())
             putString(PREF_KEY_ISSUE_REPORTER, issueReporter.text.toString())
             putString(PREF_KEY_ISSUE_ASSIGNEE, issueAssignee.text.toString())
+            putString(PREF_KEY_ISSUE_FIX_VERSION, issueFixVersion.text.toString())
         }
     }
 

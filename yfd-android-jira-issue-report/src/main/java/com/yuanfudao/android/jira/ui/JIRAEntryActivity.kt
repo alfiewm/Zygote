@@ -66,6 +66,7 @@ class JIRAEntryActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CODE_CAPTURE_PERMISSION) {
             if (resultCode != Activity.RESULT_OK) {
+                finish()
                 return
             }
             rootView.visibility = View.INVISIBLE
@@ -105,7 +106,7 @@ class JIRAEntryActivity : AppCompatActivity() {
 
     private fun onCaptureSuccess() {
         startActivityForResult(
-                ScreenshotEditActivity.createIntent(this, screenshotPath),
+                JIRAEditScreenshotActivity.createIntent(this, screenshotPath),
                 REQUEST_CODE_EDIT_CAPTURE)
     }
 

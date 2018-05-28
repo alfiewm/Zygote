@@ -17,14 +17,14 @@ import kotlinx.android.synthetic.main.jira_activity_screenshot_edit.*
 import java.io.File
 import java.io.FileOutputStream
 
-class ScreenshotEditActivity : AppCompatActivity() {
+class JIRAEditScreenshotActivity : AppCompatActivity() {
 
     companion object {
 
         private const val ARG_EDIT_IMAGE_PATH = "ARG_EDIT_IMAGE_PATH"
 
         fun createIntent(context: Context, imagePath: String): Intent {
-            val intent = Intent(context, ScreenshotEditActivity::class.java)
+            val intent = Intent(context, JIRAEditScreenshotActivity::class.java)
             intent.putExtra(ARG_EDIT_IMAGE_PATH, imagePath)
             return intent
         }
@@ -41,6 +41,7 @@ class ScreenshotEditActivity : AppCompatActivity() {
             return
         }
         setContentView(R.layout.jira_activity_screenshot_edit)
+        title = "编辑截图"
         btnUndo.setOnClickListener {
             picDrawView.undo()
         }
@@ -54,7 +55,7 @@ class ScreenshotEditActivity : AppCompatActivity() {
                 .skipMemoryCache(true)
                 .into(picDrawView)
         btnSave.setOnClickListener {
-            SaveBitmapAsyncTask(this@ScreenshotEditActivity, imagePath) {
+            SaveBitmapAsyncTask(this@JIRAEditScreenshotActivity, imagePath) {
                 setResult(if (it) Activity.RESULT_OK else 1)
                 finish()
             }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, picDrawView.toBitmap())

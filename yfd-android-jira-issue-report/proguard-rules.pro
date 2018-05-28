@@ -20,4 +20,4 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep com.yuanfudao.android.jira.module.**
+-keep class com.yuanfudao.android.jira.api.** { *; }

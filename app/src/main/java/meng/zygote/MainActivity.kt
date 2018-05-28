@@ -21,8 +21,8 @@ class MainActivity : Activity() {
             startActivity<WidgetShowcaseActivity>()
         }
         JIRAIssueReport.init(object : JIRAInfoProvider {
-            override val projectKey: String
-                get() = "YFD"
+            override val projectKeys: List<String>
+                get() = listOf("YFD", "YFDL")
             override val appVersion: String
                 get() = "6.7.0"
             override val reporters: List<String>

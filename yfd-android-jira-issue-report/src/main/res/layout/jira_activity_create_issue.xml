@@ -80,7 +80,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:gravity="bottom"
             android:orientation="horizontal">
 
             <android.support.design.widget.TextInputLayout
@@ -93,7 +93,8 @@
                     android:id="@+id/issueEnvironment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Environment" />
+                    android:hint="Environment"
+                    tools:text="OnePlus/ONEPLUSA3010/26" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -146,7 +147,7 @@
                 android:id="@+id/notifyAssigneeCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
+                android:checked="false" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/inputLayoutAssignee"
