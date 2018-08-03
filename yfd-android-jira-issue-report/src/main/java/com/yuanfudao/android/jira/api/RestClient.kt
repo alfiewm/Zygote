@@ -39,17 +39,19 @@ object RestClient {
 
     val jiraRetrofit: Retrofit by lazy {
         Retrofit.Builder()
-                .client(okHttpClient)
-                .addConverterFactory(gsonConverterFactory)
-                .baseUrl(jiraBaseUrl)
-                .build()
+            .client(okHttpClient)
+            .addConverterFactory(UnitConverterFactory)
+            .addConverterFactory(gsonConverterFactory)
+            .baseUrl(jiraBaseUrl)
+            .build()
     }
 
     val wechatRetrofit: Retrofit by lazy {
         Retrofit.Builder()
-                .client(okHttpClient)
-                .addConverterFactory(gsonConverterFactory)
-                .baseUrl(wechatWorkBaseUrl)
-                .build()
+            .client(okHttpClient)
+            .addConverterFactory(UnitConverterFactory)
+            .addConverterFactory(gsonConverterFactory)
+            .baseUrl(wechatWorkBaseUrl)
+            .build()
     }
 }

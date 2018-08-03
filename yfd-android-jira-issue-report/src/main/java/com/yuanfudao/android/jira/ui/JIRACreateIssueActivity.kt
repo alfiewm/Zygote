@@ -91,7 +91,7 @@ class JIRACreateIssueActivity : AppCompatActivity() {
     }
 
     private fun createIssue() {
-        val issue = Issue().apply {
+        val issue = IssueFields().apply {
             project = Project(issueProject.text.toString())
             issuetype = JIRAObj(issueType.text.toString())
             priority = JIRAObj(issuePriority.text.toString())
