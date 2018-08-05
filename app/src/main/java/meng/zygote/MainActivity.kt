@@ -57,7 +57,11 @@ class MainActivity : Activity() {
 
     private fun doJiraStuff() {
         val leakHash = "9cc398d67d71040d68bbae28437601cea5baa743"
-        val oldIssue = JIRAIssueReport.queryIssue(leakHash)
+        val (queryResult, oldIssue) = JIRAIssueReport.queryIssue(leakHash)
+        if (!queryResult) {
+            mainHandler?.post { toast("query existing issue failed.") }
+            return
+        }
         if (oldIssue != null) {
             if (oldIssue.isResolved()) {
                 val result = JIRAIssueReport.reopenIssue(oldIssue.key)

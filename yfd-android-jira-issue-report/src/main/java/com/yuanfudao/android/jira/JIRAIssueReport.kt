@@ -41,14 +41,14 @@ object JIRAIssueReport {
     }
 
     @WorkerThread
-    fun queryIssue(issueSign: String): Issue? {
+    fun queryIssue(issueSign: String): Pair<Boolean, Issue?> {
         val response = issueApi.searchIssues(SearchIssueBody(jql = "text ~ \"$issueSign\"",
             fields = listOf("status"))).execute()
         val searchResponse: SearchResponse? = response.body()
         if (!response.isSuccessful || searchResponse == null || searchResponse.issues.isEmpty()) {
-            return null
+            return Pair(false, null)
         }
-        return searchResponse.issues[0]
+        return Pair(true, searchResponse.issues[0])
     }
 
     @WorkerThread
